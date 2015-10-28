@@ -1,13 +1,9 @@
 FROM raspstack/base:latest
 
-RUN apt-get update && apt-get install -y \
-    zip
+RUN apt-get update
 
-COPY 0.3.0_consul_linux_armpi.zip /
+CP bin/consul /usr/local/bin
 
 WORKDIR /
-
-RUN unzip 0.3.0_consul_linux_armpi.zip
-RUN mv consul /usr/local/bin
 
 CMD ["bash"]
